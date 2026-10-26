@@ -7,7 +7,7 @@
   <title>Sandbox — Automating Impact</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout: a calm single column. A small castle mascot with a crawling bug gives the hero its character; everything below stays quiet. */
 :root {
@@ -84,6 +84,7 @@ h1 .w { display: inline-block; white-space: nowrap; }
 h1 .ch { display: inline-block; animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i) * 45ms); }
 @keyframes rise { from { transform: translateY(26px); } to { transform: translateY(0); } }
 h1 .ch:hover { color: var(--gold); transform: translateY(-6px); transition: transform 0.25s, color 0.25s; }
+.tagline { margin: 10px 0 0; font-family: 'Orbitron', monospace; font-size: clamp(10px, 1.5vw, 14px); font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
 .shine { background: linear-gradient(100deg, var(--ink) 40%, var(--gold) 50%, var(--ink) 60%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shine 7s ease-in-out infinite; }
 @keyframes shine { 0%, 40% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
 .lede { max-width: 520px; margin: 30px auto 0; color: var(--ink-soft); font-size: clamp(15px, 2vw, 18px); }
@@ -198,9 +199,10 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
       <rect x="16" y="92" width="88" height="4" fill="#e3b25e"/>
     </svg>
 
-    <h1 aria-label="Automating Impact">
-      <span class="w" aria-hidden="true" id="t1">Automating</span> <span class="w" aria-hidden="true" id="t2">Impact</span>
+    <h1 aria-label="Sandbox">
+      <span class="w" aria-hidden="true" id="t1">Sandbox</span>
     </h1>
+    <p class="tagline">Automating Impact</p>
     <p class="lede">Sandbox designs practical automation that fits into how your business already works, so your team spends less time on repeat work.</p>
     <div class="cta">
       <a class="btn" href="#work">See what we build</a>
@@ -276,7 +278,7 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
 (function () {
   // split hero words into letters that rise in (text stays readable for assistive tech via aria-label)
   var i = 0;
-  ['t1', 't2'].forEach(function (id) {
+  ['t1'].forEach(function (id) {
     var el = document.getElementById(id);
     var txt = el.textContent;
     el.textContent = '';
