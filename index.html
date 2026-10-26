@@ -1,8 +1,13 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Sandbox</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Sandbox designs practical business automation that reduces repetitive work.">
+  <title>Sandbox — Automating Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: a calm single column. A small castle mascot with a crawling bug gives the hero its character; everything below stays quiet. */
 :root {
@@ -152,6 +157,8 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
   .slide { transform: none; }
 }
 </style>
+</head>
+<body>
 <!--BODY-->
 <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="wrap">
@@ -253,24 +260,10 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
     <p class="intro slide">Answer a few quick questions about your business. It takes about two minutes, and we reply personally.</p>
 
     <div class="formbox slide">
-      <iframe id="tally" data-src="https://tally.so/embed/X554oL?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" title="Sandbox business questions" loading="lazy"></iframe>
+      <iframe id="tally" data-tally-src="https://tally.so/embed/X554oL?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" title="Sandbox business questions" loading="lazy" width="100%" height="820" frameborder="0" marginheight="0" marginwidth="0"></iframe>
     </div>
     <p class="formfallback">Form not showing? <a href="https://tally.so/r/X554oL" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
 
-    <dl class="contact-grid slide">
-      <div>
-        <dt>Email</dt>
-        <dd><span id="c-email">[YOUR EMAIL]</span> <button class="copy" type="button" data-copy="c-email">Copy</button></dd>
-      </div>
-      <div>
-        <dt>WhatsApp</dt>
-        <dd><span id="c-wa">[YOUR WHATSAPP NUMBER]</span> <button class="copy" type="button" data-copy="c-wa">Copy</button></dd>
-      </div>
-      <div>
-        <dt>Instagram</dt>
-        <dd><span id="c-ig">[YOUR INSTAGRAM HANDLE]</span></dd>
-      </div>
-    </dl>
   </section>
 
   <footer>
@@ -278,6 +271,7 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
     <span>Automating Impact</span>
   </footer>
 </div>
+<script async src="https://tally.so/widgets/embed.js"></script>
 <script>
 (function () {
   // split hero words into letters that rise in (text stays readable for assistive tech via aria-label)
@@ -294,10 +288,6 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
       el.appendChild(s);
     });
   });
-
-  // lazy-load the form iframe
-  var f = document.getElementById('tally');
-  if (f && f.dataset.src) { f.src = f.dataset.src; }
 
   // soft glow follows the pointer over the hero
   var hero = document.getElementById('top'), glow = document.getElementById('glow');
@@ -316,20 +306,6 @@ footer { padding-block: 44px 56px; border-top: 1px solid var(--line); display: f
     items.forEach(function (n) { io.observe(n); });
   } else { items.forEach(function (n) { n.classList.add('in'); }); }
 
-  // copy buttons
-  document.querySelectorAll('.copy').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var el = document.getElementById(btn.getAttribute('data-copy'));
-      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
-      var fallback = function () {
-        var r = document.createRange(); r.selectNodeContents(el);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(el.textContent).then(done, fallback);
-      } else { fallback(); }
-    });
-  });
 })();
 </script>
 
